@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 import { NavigationStart, NavigationEnd, 
-          NavigationCancel, NavigationError, Event, Router } from '@angular/router'
-
-@Component({
+          NavigationCancel, NavigationError, Event, Router } from '@angular/router';
+          @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

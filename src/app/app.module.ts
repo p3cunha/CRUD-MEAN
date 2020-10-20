@@ -9,7 +9,6 @@ import { FuncGetComponent } from './func-get/func-get.component';
 import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
