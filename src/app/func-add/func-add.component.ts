@@ -26,10 +26,4 @@ export class FuncAddComponent implements OnInit {
     }
   }
 
-  bootstrapInvalid(campo){ // return if input isn't valid and was touched
-  return !this.form.get(campo).valid && this.form.get(campo).touched 
-}
-bootstrapValid(campo){ // return if input is valid
-  return this.form.get(campo).valid
-}
 }
