@@ -1,29 +1,39 @@
 <div class="card w-75 m-auto">
     <div class="card-body">
-        <form>
+        <form [formGroup]="form">
             <div class="form col-md-6">
                 <!-- Bloco nome do funcionario -->
                 <div class="form-group">
                     <div class="form-group">
                         <label for="">Nome</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="nome">
                     </div>
                 </div>
+                <div class="alert alert-danger" *ngIf="!form.controls['nome'].valid
+                                            &&  (form.controls['nome'].dirty
+                                            || form.controls['nome'].touched)"> 
+                    Nome inválido! 
+                </div> 
+                 <!--
+                  <div class="valid-feedback" *ngIf="bootstrapValid('nome')">
+                    Nome válido!
+                  </div> -->
                 <!-- Bloco profissão do funcionario -->
                 <div class="form-group">
                     <div class="form-group">
                         <label for="">Profissão</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="profissao">
                     </div>
                 </div>
                 <!-- Bloco numero do funcionario -->
                 <div class="form-group">
                     <div class="form-group">
                         <label for="">Número Identificador</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="id">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-outline-primary btn-sm">Adicionar funcionário</button>
+                <button type="submit" class="btn btn-outline-primary btn-sm" (click)="onSubmit()">
+                    Adicionar funcionário</button>
             </div>
         </form>
     </div>
