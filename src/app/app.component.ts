@@ -10,10 +10,11 @@ import { NavigationStart, NavigationEnd,
 export class AppComponent {
   title = 'front';
 
-  constructor( private slimLoadingBarService: SlimLoadingBarService, private router: Router){
+  constructor( private slimLoadingBarService: SlimLoadingBarService, private router: Router)
+  {
     this.router.events.subscribe((event: Event) => {
       this.navigationInterceptor(event)
-    })
+    });
   }
 
   navigationInterceptor(event: Event){ // loading bar logic based on route loading state
@@ -33,5 +34,6 @@ export class AppComponent {
       this.slimLoadingBarService.stop();
     }
   }
+  
 }
 
