@@ -7,7 +7,7 @@
                     <div class="form-group">
                     <label for="">Nome</label>
                     <input type="text" class="form-control" formControlName="nome"
-                        [ngClass]="cssValidInvalid('nome')">
+                        [ngClass]="cssValidInvalid('nome')" #nome>
                         <div class="invalid-feedback d-block" 
                         *ngIf="!form.controls['nome'].valid 
                         && (form.controls['nome'].dirty || form.controls['nome'].touched)"> 
@@ -25,7 +25,7 @@
                     <div class="form-group">
                         <label for="">Profissão</label>
                         <input type="text" class="form-control" formControlName="profissao"
-                        [ngClass]="cssValidInvalid('profissao')">
+                        [ngClass]="cssValidInvalid('profissao')" #profissao>
                         <div class="invalid-feedback d-block" 
                         *ngIf="!form.controls['profissao'].valid 
                         && (form.controls['profissao'].dirty || form.controls['profissao'].touched)"> 
@@ -41,8 +41,8 @@
                 <div class="form-group">
                     <div class="form-group">
                         <label for="">Número Identificador</label>
-                        <input type="text" class="form-control" formControlName="id"
-                        [ngClass]="cssValidInvalid('id')">
+                        <input  type="text" class="form-control" formControlName="id"
+                        [ngClass]="cssValidInvalid('id')" #id>
                         <div class="invalid-feedback d-block" 
                         *ngIf="!form.controls['id'].valid 
                         && (form.controls['id'].dirty || form.controls['id'].touched)"> 
@@ -54,7 +54,10 @@
                         </div> 
                     </div>
                 </div>
-                <button type="submit" class="btn btn-outline-primary btn-sm" (click)="onSubmit()">
+                <button type="submit" class="btn btn-outline-primary btn-sm" 
+                (click)="onSubmit(nome.value, profissao.value, id.value);
+                nome.value = ''; profissao.value = ''; id.value= ''" 
+                [disabled]="!form.valid">
                     Adicionar funcionário</button>
             </div>
         </form>

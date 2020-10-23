@@ -10,10 +10,11 @@ import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-import { EmpresaService } from './empresa.service';
+import { FuncionarioService } from './funcionario.service';
 import { FuncAddComponent } from './func-add/func-add.component';
 import { FuncEditComponent } from './func-edit/func-edit.component';
 import { FuncGetComponent } from './func-get/func-get.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,11 +27,12 @@ import { FuncGetComponent } from './func-get/func-get.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     SlimLoadingBarModule.forRoot(),
     ReactiveFormsModule,
     AlertModule.forRoot()
   ],
-  providers: [EmpresaService],
+  providers: [FuncionarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

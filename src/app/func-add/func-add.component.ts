@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms'
-import { Funcionario } from '../Empresa';
+import { Funcionario } from '../Funcionario';
+import { FuncionarioService } from '../funcionario.service';
 
 @Component({
   selector: 'app-func-add',
@@ -12,19 +13,22 @@ export class FuncAddComponent implements OnInit {
   form: FormGroup
   func: Funcionario
 
-  constructor( private formBuilder: FormBuilder) { }
+  constructor( private formBuilder: FormBuilder,
+              private funcionarioService: FuncionarioService) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      nome: ['', [Validators.required, Validators.minLength(3) ]],
-      profissao: ['', [Validators.required]],
-      id: ['', [Validators.required]]
+      nome: ['', [Validators.required, Validators.minLength(3), 
+        Validators.pattern("^[a-zA-Z0-9]*[a-zA-Z]+[a-zA-Z0-9]*$") ]],
+      profissao: ['', [Validators.required ]],
+      id: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(6)]]
     })
   }
 
-  onSubmit(){
+  onSubmit(nome, profissao, id){
     if (this.form.valid){
     console.log(this.form)
+    this.addFuncionario(nome, profissao, id)
     }
   }
 
@@ -42,4 +46,7 @@ cssValidInvalid(campo){ // return string that will modify input class
       return 'is-valid' } // class that will change css to valid
   }
 
+  addFuncionario(nome, profissao, id){
+    this.funcionarioService.addFuncionario(nome, profissao, id)
+  }
 }
