@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms'
+import { Funcionario } from '../Empresa';
 
 @Component({
   selector: 'app-func-add',
@@ -9,6 +10,7 @@ import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms'
 export class FuncAddComponent implements OnInit {
 
   form: FormGroup
+  func: Funcionario
 
   constructor( private formBuilder: FormBuilder) { }
 
