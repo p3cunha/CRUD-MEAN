@@ -18,8 +18,7 @@ export class FuncAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      nome: ['', [Validators.required, Validators.minLength(3), 
-        Validators.pattern("^[a-zA-Z0-9]*[a-zA-Z]+[a-zA-Z0-9]*$") ]],
+      nome: ['', [Validators.required, Validators.minLength(3) ]],
       profissao: ['', [Validators.required ]],
       id: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(6)]]
     })
